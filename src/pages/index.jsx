@@ -28,7 +28,7 @@ const Home = () => {
         </div>
 
         <div className="tasks">
-          <TaskContainer filteredTasks={filteredTasks} tasklist={tasklist} setTaskList={setTaskList} />
+          <TaskContainer filteredTasks={filteredTasks} tasklist={tasklist} setTaskList={setTaskList}/>
         </div>
 
         <div className="data">

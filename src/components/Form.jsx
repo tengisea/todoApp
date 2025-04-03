@@ -1,7 +1,12 @@
 import { useState } from "react";
+import styles from "@/styles/InputNewTask.module.css"
 
 export const Form = ({ setTaskList, taskList }) => {
   const [inputValue, setInputValue] = useState("");
+  const [isCompleted, setIsCompleted] = useState("");
+
+  console.log(isCompleted);
+  
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
@@ -15,23 +20,22 @@ export const Form = ({ setTaskList, taskList }) => {
       task: inputValue,
       isCompleted: false,
     };
-    console.log("taskList", taskList);
 
     setTaskList([newTask, ...taskList]);
     setInputValue("");
-    console.log("taskList", taskList);
   };
   console.log("taskList", taskList);
 
   return (
     <form>
       <input
+        className={styles.input}
         type="text"
         onChange={handleChange}
         value={inputValue}
         placeholder="Add a new task..."
       />
-      <button onClick={handleAddTaskClick} type="submit">
+      <button onClick={handleAddTaskClick} type="submit" className={styles.button}> 
         Add
       </button>
     </form>

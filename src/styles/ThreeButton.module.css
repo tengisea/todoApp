@@ -6,6 +6,11 @@
   align-items: center;
   gap: 10px;
   border-radius: 6px;
-  border-color: #f3f4f6;
-  background: #f3f4f6;
+  color: #363636;
+  background-color: #e5e7eb;
+}
+
+.flex{
+  display: flex;
+  gap: 10px;
 }

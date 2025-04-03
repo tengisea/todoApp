@@ -1,17 +1,27 @@
-export const TaskContainer = ({ filteredTasks, tasklist, setTaskList }) => {
+import { NoTasksToDisplay, TaskRow } from ".";
+
+export const TaskContainer = ({
+  filteredTasks,
+  tasklist,
+  setTaskList,
+  setIsCompleted,
+  task,
+}) => {
   const toggleTaskStatus = (taskId) => {
-    const taskListUpdate = tasklist.map((task) => (taskId === task.id ? { ...task, isCompleted: !task.isCompleted} : task));
+    const taskListUpdated = tasklist.map((task) =>
+      taskId === task.id ? { ...task, isCompleted: !task.isCompleted } : task
+    );
 
     setTaskList(taskListUpdated);
   };
 
-  const deleteTask = (taskId)=>{
-    const isConfirmed= window.confirm("Are you sure you want to delete this task?")
-
-    if (isConfirmed){
-      
-    }
-  }
-
-  return <input type="checkbox" onChange={isCompleted} />
+  return (
+    <div>
+      {tasklist.length === 0 ? (
+        <NoTasksToDisplay />
+      ) : (
+        tasklist.map((task) => <TaskRow task={task} />)
+      )}
+    </div>
+  );
 };
